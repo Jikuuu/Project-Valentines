@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>First</title>
+    <style>
+        body {
+            text-align: center;
+            background-image: url("backk.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .bigbox {
+            width: 500px;
+            position: relative;
+            border: 1px solid black;
+            background-image: url("letter.jpg");
+            background-size: 100%;
+            text-shadow: 3px 2px 3px wheat;
+            color: maroon;
+            box-shadow: 10px 10px 20px black;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            top: 100px;
+        }
+
+        button {
+            padding: 10px;
+            width: 100px;
+            border: none;
+            box-shadow: 5px 5px 10px black;
+            border: 1px solid black;
+            transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+            color: white;
+            font-size: 20px;
+            margin: 10px;
+        }
+
+        button:hover {
+            filter: brightness(1.2);
+            transform: scale(1.1);
+        }
+
+        #yea {
+            background-color: green;
+        }
+
+        #nah {
+            background-color: red;
+        }
+
+        #yea:hover {
+            background-color: #28a745;
+        }
+
+        #nah:hover {
+            background-color: #c82333;
+        }
+
+        #tixt {
+            font-size: 35px;
+            text-align: center;
+        }
+
+        /* Cat image */
+        #valentineImage {
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 200px; /* Prevents excessive scaling */
+            object-fit: contain;
+            margin-top: 10px;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<center>
+    <div class="bigbox">
+        <h1 id="tixt">Will you be my valentine?</h1>
+        <img id="valentineImage" src="catmain.jpeg" alt="Cute Cat">
+        <div>
+            <button id="yea">Yes</button>
+            <button id="nah">No</button>
+        </div>
+    </div>
+</center>
+
+<script type="module">
+    
+    const yea = document.getElementById('yea');
+    const nah = document.getElementById('nah');
+    const valentineImage = document.getElementById('valentineImage');
+    const valentineQuestion = document.getElementById('tixt');
+
+    let noClickCount = 0;
+    const imagePaths = [
+        "cat1.png",
+        "cat2.jpg",
+        "cat3.jpg",
+        "cat4.jpg",
+        "cat5.jpg",
+        "cat6.jpeg",
+        "cat2.jpg",
+        "cat3.jpg",
+        "cat4.jpg",
+        "cat5.jpg",
+        "cat6.jpeg",
+        "cat3.jpg"
+    ];
+    
+    const noResponses = [
+        "No?",
+        "Sure ka? :(",
+        "Pleasee :((",
+        "NAAAH :(",
+        "You're breaking my heart :((",
+        "Mu helak nako",
+        "PLEASE:(",
+        "I'll cry na:(",
+        "Suree jud???",
+        "Please naaaa",
+        "im begging youu",
+        "CLICK YES NA:("
+    ];
+
+    nah.addEventListener('click', () => {
+        if (noClickCount < imagePaths.length) {
+            valentineImage.src = imagePaths[noClickCount];
+            nah.textContent = noResponses[noClickCount];
+            noClickCount++;
+        }
+    });
+
+    yea.addEventListener('click', () => {
+        window.location.href = 'github.html';
+    });
+</script>
+
+</body>
+</html>
